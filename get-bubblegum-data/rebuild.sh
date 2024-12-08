@@ -9,3 +9,5 @@ sudo docker rm /bubble-pop-dev > /dev/null
 
 echo "Running container 'bubble-pop-dev'\n"
 sudo docker run -d --name bubble-pop-dev -p 8080:8080 get-bubblegum-data
+
+echo "http://localhost:8080/health"

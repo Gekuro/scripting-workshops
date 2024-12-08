@@ -1,8 +1,8 @@
 local lapis = require "lapis"
 local app = lapis.Application()
 
-app:match("/", function(self)
-  return "Hello world xd"
+app:match("/health", function(self)
+  return "Good, thanks"
 end)
 
 return app
