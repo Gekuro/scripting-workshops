@@ -15,15 +15,17 @@ RUN curl -fsSL https://openresty.org/package/pubkey.gpg | gpg --dearmor -o /usr/
     && echo "deb [signed-by=/usr/share/keyrings/openresty.gpg] http://openresty.org/package/ubuntu $(lsb_release -sc) main" \
     | tee /etc/apt/sources.list.d/openresty.list \
     && apt update \
-    && apt install -y openresty
+    && apt install -y openresty 
 
-RUN luarocks install lapis
+# TODO make rockspec file
+RUN luarocks install lapis \
+  && luarocks install pgmoon
 
 WORKDIR /bubbles
 
 RUN lapis new
 
-COPY ./app.lua ./app.lua
+COPY ./src .
 
 EXPOSE 8080
 
