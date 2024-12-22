@@ -1,7 +1,7 @@
 CREATE DATABASE IF NOT EXISTS bubble-pop-dev
 USE bubble-pop-dev
 
-CREATE TABLE IF NOT EXISTS brands (
+CREATE TABLE brands (
   id SERIAL PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
   country VARCHAR(255) NOT NULL,
@@ -9,13 +9,13 @@ CREATE TABLE IF NOT EXISTS brands (
   updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE IF NOT EXISTS products (
+CREATE TABLE bubblegum (
   id SERIAL PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
-  flavor_name VARCHAR(255) NOT NULL,
+  flavor_name VARCHAR(255),
   description TEXT,
-  price NUMERIC(10, 2) NOT NULL,
-  brand_id INTEGER REFERENCES brands(id),
+  price NUMERIC(10, 2),
+  brand_id INTEGER REFERENCES brands(id) NOT NULL,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

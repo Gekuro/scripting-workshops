@@ -1,4 +1,7 @@
 local Model = require("lapis.db.model").Model
+local models = {}
 
-local Products = Model:extend("products")
-local Brands = Model:extend("brands")
+models.Bubblegum = Model:extend("bubblegum")
+models.Brands = Model:extend("brands")
+
+return models
