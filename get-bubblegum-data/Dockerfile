@@ -23,10 +23,9 @@ RUN luarocks install lapis \
 
 WORKDIR /bubbles
 
-RUN lapis new
-
 COPY ./src .
+COPY ./src/nginx.dev.conf ./nginx.conf
 
 EXPOSE 8080
 
-CMD ["lapis", "server"]
+CMD ["lapis", "server", "development"]
